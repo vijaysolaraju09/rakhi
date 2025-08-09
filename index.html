@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rakhi Flight • From Bro to Sis ✈️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Final Overlay -->
+  <div id="overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="giftMsg">
+    <div class="overlay-content">
+      <div class="evil-smile" aria-hidden="true">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="smile"></div>
+      </div>
+      <h1 id="giftMsg">I'm your biggest gift 😈</h1>
+      <button id="closeOverlay" class="btn">okay, you win</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand">Raksha Bandhan • Code & Heart</div>
+    <a class="btn outline" href="#scene-characters" id="skipToBond">Skip »</a>
+  </nav>
+
+  <!-- SCENE 1: FLIGHT -->
+  <header id="scene-flight" class="scene flight-scene">
+    <div class="scene-inner">
+      <h1 class="title">Miles apart, one bond ✨</h1>
+      <p class="subtitle">From USA to India — today I’m flying to you.</p>
+
+      <div class="map-wrap">
+        <!-- SVG Map (abstract, stylized) with a curved path from USA to India -->
+        <svg id="world" viewBox="0 0 1200 500" aria-label="Stylized world map with a flight path USA → India">
+          <defs>
+            <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0a0e1a"/>
+              <stop offset="100%" stop-color="#0e1426"/>
+            </linearGradient>
+            <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#203057" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
+          </defs>
+
+          <!-- Ocean background -->
+          <rect x="0" y="0" width="1200" height="500" fill="url(#ocean)"/>
+          <circle cx="300" cy="180" r="220" fill="url(#glow)" filter="url(#soft)"/>
+          <circle cx="900" cy="340" r="260" fill="url(#glow)" filter="url(#soft)"/>
+
+          <!-- Abstract landmasses (stylized shapes) -->
+          <path d="M120 210 q80 -60 190 -30 t160 30 q-40 50 -120 60 t-160 -10 q-70 -15 -70 -50z"
+                fill="#243b6b" stroke="#2f4c8f" stroke-width="2" opacity="0.9"/>
+          <path d="M820 220 q60 -40 150 -20 t170 40 q-30 60 -110 70 t-160 -10 q-50 -20 -50 -40z"
+                fill="#243b6b" stroke="#2f4c8f" stroke-width="2" opacity="0.9"/>
+
+          <!-- Labels -->
+          <text x="220" y="190" fill="#a6c8ff" font-size="18" font-family="Poppins" opacity="0.9">USA</text>
+          <text x="980" y="240" fill="#a6c8ff" font-size="18" font-family="Poppins" opacity="0.9">INDIA</text>
+
+          <!-- Flight path -->
+          <path id="flightPath" d="M260,180 C520,20 760,60 1030,220" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round"/>
+          
+          <!-- Plane (will be positioned along the path) -->
+          <g id="plane" transform="translate(260,180) rotate(-12)">
+            <path d="M0,-6 L40,0 L0,6 L5,0 Z" fill="#ffffff"/>
+            <rect x="-8" y="-2" width="10" height="4" fill="#9ad8ff"/>
+            <circle cx="30" cy="0" r="2" fill="#9ad8ff"/>
+          </g>
+
+          <!-- Destination pin -->
+          <g id="pin" transform="translate(1030,220)">
+            <circle r="8" fill="#ff6fa1"/>
+            <rect x="-2" y="8" width="4" height="10" fill="#ff6fa1"/>
+          </g>
+        </svg>
+        <button id="takeFlight" class="btn big">Take Flight ✈️</button>
+        <div id="landedMsg" class="hint hidden">Landed! Scroll to continue ↓</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCENE 2: CHARACTERS + RAKHI -->
+  <main id="scene-characters" class="scene characters-scene">
+    <section class="bond-wrap">
+      <div class="chars">
+        <!-- Sister (Indian traditional kurta) -->
+        <svg class="human sister" viewBox="0 0 220 360" aria-label="Sister in kurta">
+          <!-- body -->
+          <rect x="70" y="120" width="80" height="120" rx="16" fill="#e85d8e"/>
+          <!-- kurta hem -->
+          <path d="M70,220 q40,24 80,0 v30 h-80z" fill="#d94b7f"/>
+          <!-- pants/leggings -->
+          <rect x="78" y="250" width="24" height="70" fill="#ffc9de" rx="6"/>
+          <rect x="118" y="250" width="24" height="70" fill="#ffc9de" rx="6"/>
+          <!-- head -->
+          <circle cx="110" cy="85" r="32" fill="#ffcfb3"/>
+          <!-- hair -->
+          <path d="M78,82 q32 -44 64 0 v22 q-32 18 -64 0z" fill="#2d2a32"/>
+          <!-- dupatta -->
+          <path d="M60,140 q30 -20 80 -18 q30 2 40 12 q-22 36 -40 46 q-32 18 -80 10 z" fill="#ffd166" opacity="0.9"/>
+          <!-- right arm (towards brother) -->
+          <g id="sis-arm" transform="translate(150,160) rotate(6)">
+            <rect x="-10" y="-8" width="18" height="70" rx="10" fill="#ffcfb3"/>
+            <circle cx="-1" cy="62" r="10" fill="#ffcfb3"/>
+          </g>
+          <!-- heart bubble -->
+          <g class="bubble">
+            <circle cx="180" cy="40" r="12" fill="#ff6fa1" opacity="0.9"/>
+            <circle cx="195" cy="28" r="7" fill="#ff6fa1" opacity="0.7"/>
+          </g>
+        </svg>
+
+        <!-- Brother (black hoodie + grey cargo pants) -->
+        <svg class="human brother" viewBox="0 0 220 360" aria-label="Brother in hoodie">
+          <!-- hoodie body -->
+          <rect x="60" y="120" width="100" height="120" rx="18" fill="#111317"/>
+          <!-- hoodie pocket -->
+          <rect x="88" y="190" width="44" height="22" rx="10" fill="#1d222b"/>
+          <!-- hoodie strings -->
+          <rect x="98" y="118" width="4" height="22" fill="#d1d5db" rx="2"/>
+          <rect x="118" y="118" width="4" height="22" fill="#d1d5db" rx="2"/>
+          <!-- pants -->
+          <rect x="70" y="240" width="34" height="80" rx="6" fill="#6b7280"/>
+          <rect x="116" y="240" width="34" height="80" rx="6" fill="#6b7280"/>
+          <rect x="70" y="260" width="80" height="12" fill="#4b5563" opacity="0.6"/>
+          <!-- head -->
+          <circle cx="110" cy="85" r="32" fill="#ffbf99"/>
+          <!-- hair -->
+          <path d="M78,80 q30 -28 64 0 v16 q-32 14 -64 -2z" fill="#1f2937"/>
+          <!-- left arm down -->
+          <g transform="translate(160,160)">
+            <rect x="-10" y="-8" width="18" height="70" rx="10" fill="#ffbf99"/>
+            <circle cx="-1" cy="62" r="10" fill="#ffbf99"/>
+          </g>
+          <!-- right arm/hand (click target) -->
+          <g id="bro-hand" class="clickable" transform="translate(58,160) rotate(-4)">
+            <rect x="-8" y="-8" width="18" height="70" rx="10" fill="#ffbf99"/>
+            <circle cx="-1" cy="62" r="10" fill="#ffbf99"/>
+            <!-- Rakhi (hidden) -->
+            <g id="rakhi" class="rakhi hidden" transform="translate(0,25)">
+              <circle r="8" fill="#ffcc00" stroke="#b36b00" stroke-width="2"/>
+              <circle r="3" fill="#ff0066"/>
+              <rect x="-22" y="-2" width="44" height="4" rx="2" fill="#b36b00"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="cta">
+        <h2>Happy Raksha Bandhan, Sister! 🎀</h2>
+        <p class="muted">Two full-stackers, one unbreakable link.</p>
+        <div class="hint">Click my hand to tie the rakhi →</div>
+      </div>
+
+      <!-- Gift -->
+      <div id="gift-area" class="gift-area hidden" aria-live="polite">
+        <div id="gift" class="gift" role="button" tabindex="0" aria-label="Gift box. Long press the lid and drag it up to open.">
+          <div id="lid" class="lid">
+            <div class="ribbon bow"></div>
+          </div>
+          <div class="box">
+            <div class="ribbon vertical"></div>
+            <div class="ribbon horizontal"></div>
+            <p class="box-hint">Long press the lid and drag up</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story panels -->
+    <section class="panel">
+      <h3 class="reveal">PRs across timezones, hearts in <span>sync</span>.</h3>
+      <p class="reveal">USA ↔ India latency? negligible. Sibling bandwidth? unlimited.</p>
+    </section>
+
+    <section class="panel alt">
+      <h3 class="reveal">When life throws exceptions, you’re my <span>handler</span>.</h3>
+      <p class="reveal">Thanks for every code review, pep talk, and coffee-powered midnight deploy.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="btn" href="#scene-flight">Back to flight ↑</a>
+    <p>© 2025 Bro.dev — Built with love & vanilla JS</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="assertive"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
